@@ -1,4 +1,4 @@
-package user;
+/*package user;
 
 import shoppingCart.Address;
 import shoppingCart.Cart;
@@ -34,3 +34,4 @@ public class Customer extends UserAccount{
 
 
 }
+*/

@@ -1,4 +1,5 @@
-package shoppingCart;
+//package shoppingCart;
+
 
 public class Address {
 
@@ -12,22 +13,22 @@ public class Address {
     private String landMark;
     //private Customer cust;
 
-    public Address(String governorate, String district, String street, int buildingNumber, int floorBuilding, String flatBuilding, String landMark) {
-        this.governorate = governorate;
-        this.district = district;
-        this.street = street;
-        this.buildingNumber = buildingNumber;
-        this.floorBuilding = floorBuilding;
-        this.flatBuilding = flatBuilding;
-        this.landMark = landMark;
-    }
+     public Address(String governorate, String district, String street, int buildingNumber, int floorBuilding, String flatBuilding, String landMark) {
+         this.governorate = governorate;
+         this.district = district;
+         this.street = street;
+         this.buildingNumber = buildingNumber;
+         this.floorBuilding = floorBuilding;
+         this.flatBuilding = flatBuilding;
+         this.landMark = landMark;
+     }
 
     public String getGovernorate() {
         return governorate;
     }
 
-    public void setGovernorate(String governorate) {
-        this.governorate = governorate;
+    public void setGovernorate(String gov) {
+        governorate = gov;
     }
 
     public String getDistrict() {
