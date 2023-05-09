@@ -3,6 +3,7 @@
 import java.io.*;
 import java.util.Scanner;
 
+
 public class Registration {
 
     private String userName;
@@ -33,7 +34,7 @@ public class Registration {
             bw.write("\n");
             bw.write(email);
             bw.write("\n");
-            bw.write(address.toString());
+            bw.write(address.getGovernorate() + " " + address.getDistrict() + " " + address.getStreet() + " " + address.getBuildingNumber() + " " + address.getFloorBuilding() + " " + address.getFlatBuilding() + " " + address.getLandMark());
             bw.write("\n");
             bw.write(phoneNum);
             bw.write("\n");
@@ -67,24 +68,6 @@ public class Registration {
         String landMark = input.nextLine();
         this.address = new Address(governorate, district, street, buildingNumber, floorBuilding, flatBuilding, landMark);
     }
-
-
-    /*public Registration(String userName, String password, String email, String governorate, String district, String street, int buildingNumber, int floorBuilding, String flatBuilding, String landMark) {
-        this.userName = userName;
-
-        if(password.length() < 8){
-            System.out.println("Password must be at least 8 characters long");
-        }
-        else if(password.matches(pattern)){
-            System.out.println("Password must contain at least one special character");
-        }
-        else {
-            System.out.println("Password is valid");
-            this.password = password;
-        }
-        this.email = email;
-        this.address = new Address(governorate, district, street, buildingNumber, floorBuilding, flatBuilding, landMark);
-    }*/
 
     public String getUserName() {
         return userName;
