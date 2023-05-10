@@ -9,9 +9,11 @@ public class Main {
         //Address address = new Address();
         //address.setGovernorate("Cairo");
 
-        Registration r = new Registration();
-        //r.setPassword("r432rR&*@");
-        r.register();
+//        Registration r = new Registration();
+//        r.register();
+
+//        LogIN l = new LogIN();
+//        l.login();
 
     }
 

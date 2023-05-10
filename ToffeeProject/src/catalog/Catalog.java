@@ -4,11 +4,8 @@ import java.util.ArrayList;
 public class Catalog {
 
     private ArrayList<Item> items;
-    private ArrayList<Category> categories;
 
-    public Catalog(ArrayList<Category> categories, ArrayList<Item> items) {
-
-        this.categories =  categories;
+    public Catalog(ArrayList<Item> items) {
         this.items = items;
     }
 
@@ -16,11 +13,7 @@ public class Catalog {
         items.add(item);
 
     }
-    public void addCategory(Category category){
 
-        categories.add(category);
-
-    }
 
     public Item searchBYItem(String name){
         for (int i = 0; i < items.size(); i++) {
@@ -37,24 +30,6 @@ public class Catalog {
             }
         }
     }
-
-    public void filterByCategory(String name){
-        for (int i = 0; i < categories.size(); i++) {
-            if(categories.get(i).getName().equals(name)){
-                for (int j = 0; j < categories.get(i).getItems().size(); j++) {
-                    System.out.println(categories.get(i).getItems().get(j).getName());
-                }
-            }
-        }
-    }
-
-
-
-
-    public void filterByName(){
-
-    }
-
     public void display(){
         for (int i = 0; i < items.size(); i++) {
             System.out.println(items.get(i).getName());

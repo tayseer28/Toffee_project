@@ -9,11 +9,10 @@ public class Address {
     private int buildingNumber;
 
     private int floorBuilding;
-    private String flatBuilding;
+    private int flatBuilding;
     private String landMark;
     //private Customer cust;
-
-     public Address(String governorate, String district, String street, int buildingNumber, int floorBuilding, String flatBuilding, String landMark) {
+     public Address(String governorate, String district, String street, int buildingNumber, int floorBuilding, int flatBuilding, String landMark) {
          this.governorate = governorate;
          this.district = district;
          this.street = street;
@@ -63,11 +62,11 @@ public class Address {
         this.floorBuilding = floorBuilding;
     }
 
-    public String getFlatBuilding() {
+    public int getFlatBuilding() {
         return flatBuilding;
     }
 
-    public void setFlatBuilding(String flatBuilding) {
+    public void setFlatBuilding(int flatBuilding) {
         this.flatBuilding = flatBuilding;
     }
 

@@ -22,19 +22,17 @@ public class Registration {
 
 
 
-    public void WriteToFile(String fileName){
+    public void WriteToFile(){
 
-        try {
-
-            FileWriter myWriter = new FileWriter(fileName, true);
-            BufferedWriter bw = new BufferedWriter(myWriter);
+        try(FileWriter myWriter = new FileWriter("users.txt", true);
+            BufferedWriter bw = new BufferedWriter(myWriter);) {
             bw.write(userName);
             bw.write("\n");
             bw.write(password);
             bw.write("\n");
             bw.write(email);
             bw.write("\n");
-            bw.write(address.getGovernorate() + " " + address.getDistrict() + " " + address.getStreet() + " " + address.getBuildingNumber() + " " + address.getFloorBuilding() + " " + address.getFlatBuilding() + " " + address.getLandMark());
+            bw.write(address.getGovernorate() + " | " + address.getDistrict() + " | " + address.getStreet() + " | " + address.getBuildingNumber() + " | " + address.getFloorBuilding() + " | " + address.getFlatBuilding() + " | " + address.getLandMark());
             bw.write("\n");
             bw.write(phoneNum);
             bw.write("\n");
@@ -46,6 +44,30 @@ public class Registration {
             e.printStackTrace();
           }
     }
+    boolean isExist(String userN){
+
+        File file = new File("users.txt");
+        try(FileReader myReader = new FileReader(file);
+            BufferedReader bufferedReader = new BufferedReader(myReader)){
+
+            String line;
+            while((line = bufferedReader.readLine()) != null){
+                if(line.equals(userN)){
+                    System.out.println("user is exist");
+                    bufferedReader.close();
+                    return true;
+                }
+            }
+            bufferedReader.close();
+            return false;
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+        return false;
+
+    }
+
 
     public void getAddressInfo(){
         Scanner input = new Scanner(System.in);
@@ -63,7 +85,8 @@ public class Registration {
         int floorBuilding = input.nextInt();
         input.nextLine();
         System.out.println("Enter your flat number: ");
-        String flatBuilding = input.nextLine();
+        int flatBuilding = input.nextInt();
+        input.nextLine();
         System.out.println("Enter your landmark: ");
         String landMark = input.nextLine();
         this.address = new Address(governorate, district, street, buildingNumber, floorBuilding, flatBuilding, landMark);
@@ -133,16 +156,16 @@ public class Registration {
 
     }
     public void register(){
-        String pass, e, phone;
+        String pass, e, phone,user;
 
             do {
                 Scanner input = new Scanner(System.in);
 
                 System.out.println("Enter your username: ");
 
-                String userName = input.nextLine();
+                user = input.nextLine();
 
-                setUserName(userName);
+                setUserName(user);
 
                 System.out.println("Enter your password: ");
 
@@ -160,9 +183,9 @@ public class Registration {
                 getAddressInfo();
 
             }
-            while(!setPassword(pass)|| !setEmail(e) || !setPhoneNum(phone));
+            while(isExist(user)||!setPassword(pass)|| !setEmail(e) || !setPhoneNum(phone) );
+            WriteToFile();
 
-        WriteToFile("users.txt");
 
 
     }

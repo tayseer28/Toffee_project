@@ -7,10 +7,11 @@ import java.util.Scanner;
 public class LogIN {
     private String username;
     private String password;
+    private boolean loggedin;
 
-    public LogIN(String username, String password) {
-        this.username = username;
-        this.password = password;
+    public LogIN() {
+        this.username = "";
+        this.password = "";
     }
 
     boolean isExist(String userN, String pass){
@@ -54,6 +55,8 @@ public class LogIN {
             System.out.println("Enter your password: ");
             pass = input.nextLine();
             if(isExist(userN, pass)){
+                username=userN;
+                password=pass;
                 System.out.println("Welcome " + userN);
             }
             else{
@@ -61,8 +64,12 @@ public class LogIN {
             }
 
         }while (!isExist(userN, pass));
+        loggedin=true;
 
 
 
+    }
+    boolean getloggedin(){
+        return loggedin;
     }
 }
