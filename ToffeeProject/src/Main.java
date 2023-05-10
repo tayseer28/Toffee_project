@@ -1,10 +1,14 @@
-import catalog.Item;
 
 
 public class Main {
 
 
     public static void main(String[] args) {
+
+        Item i = new Item();
+        Catalog c = new Catalog();
+        c.display();
+
 
         //Address address = new Address();
         //address.setGovernorate("Cairo");
@@ -14,6 +18,7 @@ public class Main {
 
 //        LogIN l = new LogIN();
 //        l.login();
+
 
     }
 

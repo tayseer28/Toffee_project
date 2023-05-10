@@ -2,7 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package catalog;
+
+
+import java.io.*;
+
 
 /**
  *
@@ -12,30 +15,23 @@ public class Item {
     private String name ;
     private String description;
     private String status;
-    private String catalog;
-
     private int id;
-    private static int Statid;
+
+    private String brand;
     private double price;
-    private Brand b;
 
-    static {
-        Statid = 2021;
-    }
-
-    public Item(String name, String description, String status, String catalog, double price) {
+    public Item(String name, String description, String status, double price, String brand) {
         this.name = name;
         this.description = description;
         this.status = status;
-        this.catalog = catalog;
-        this.b = new Brand();
+        this.brand = brand;
         this.price = price;
-        id = Statid;
-        Statid++;
+
 
     }
 
     public Item() {
+
     }
 
 
@@ -64,14 +60,6 @@ public class Item {
         this.status = status;
     }
 
-    public String getCatalog() {
-        return catalog;
-    }
-
-    public void setCatalog(String catalog) {
-        this.catalog = catalog;
-    }
-
     public int getId() {
         return id;
     }
@@ -93,5 +81,11 @@ public class Item {
         this.price = disc;
     }
 
+    public String getBrand() {
+        return brand;
+    }
 
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
 }

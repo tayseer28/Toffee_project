@@ -1,18 +1,28 @@
-package user;
 
-public abstract class UserAccount {
+public  class UserAccount {
 
+    private Cart cart;
+    private Order order;
+    private Address address;
     private String userName;
     private String password;
     private String status;
-
     private String email;
+    private int id;
+    private static int StatID;
+
+
+    static {
+        StatID = 1;
+    }
 
     public UserAccount(String userName, String password, String status, String email) {
         this.userName = userName;
         this.password = password;
         this.status = status;
         this.email = email;
+        id = StatID;
+        StatID++;
     }
 
     public String getUserName() {
@@ -45,5 +55,13 @@ public abstract class UserAccount {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
